@@ -3,6 +3,21 @@ import 'package:json_annotation/json_annotation.dart';
 part 'medical_supplies_dto.g.dart';
 
 @JsonSerializable(explicitToJson: true)
+class MaterialMedicalSupplyInCart {
+  MaterialMedicalSupplyInCart({
+    required this.medicalSupplyInCart,required this.quantity
+});
+  factory MaterialMedicalSupplyInCart.fromJson(Map<String, dynamic> json) =>
+      _$MaterialMedicalSupplyInCartFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MaterialMedicalSupplyInCartToJson(this);
+
+  MaterialMedicalSupplyDto medicalSupplyInCart;
+  int quantity;
+}
+
+
+@JsonSerializable(explicitToJson: true)
 class MaterialMedicalSuppliesDto {
   MaterialMedicalSuppliesDto({
     required this.medicalSupplies,

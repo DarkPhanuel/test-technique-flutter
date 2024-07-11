@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:test_technique_flutter/themes/icons/silk_icons_svg.dart';
 import 'package:test_technique_flutter/themes/silk_theme_manager.dart';
@@ -125,6 +124,7 @@ class _SilkNumericUpDownState<T extends num>
           shadow: SilkThemeManager.of(context).shadows.interact,
           onPressed:
               disabled ? null : () => widget.onChanged?.call(incrementValue()),
+
         ),
       ],
     );

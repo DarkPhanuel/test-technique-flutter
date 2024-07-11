@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   flutter_svg: ^2.0.10+1
+  flutter_riverpod: ^2.5.1
   flutter:
     sdk: flutter
   json_annotation: ^4.9.0

@@ -20,6 +20,8 @@ class SilkButton extends StatelessWidget {
     this.fontColor,
     this.padding,
     this.mainAxisSize,
+    this.isFromData = false,
+    this.iconFromData,
     this.shadow,
     this.iconSize = 24,
   }) : isIconButton = false;
@@ -28,6 +30,7 @@ class SilkButton extends StatelessWidget {
     required this.color,
     super.key,
     this.onPressed,
+    this.isFromData = false,
     this.icon,
     this.type = SilkButtonType.primary,
     this.fontColor,
@@ -36,6 +39,7 @@ class SilkButton extends StatelessWidget {
     this.mainAxisSize,
     this.height = 56,
     this.width,
+    this.iconFromData,
     this.shadow,
     this.iconSize = 24,
   })  : trailingIcon = null,
@@ -48,7 +52,9 @@ class SilkButton extends StatelessWidget {
   final SilkIconsBase? trailingIcon;
   final SilkButtonType type;
   final bool isIconButton;
+  final IconData? iconFromData;
   final Color color;
+  final bool isFromData;
   final Color? fontColor;
   final double height;
   final double? width;
@@ -121,14 +127,20 @@ class SilkButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: mainAxisSize ?? MainAxisSize.max,
               children: [
-                if (icon != null)
+                if (icon != null || iconFromData != null)
                   Padding(
                     padding: EdgeInsets.only(right: isIconButton ? 0 : 8),
-                    child: SilkIcon.fromPath(
-                      icon: icon!,
-                      color: fontColor,
-                      size: Size.square(iconSize),
-                    ),
+                    child: !isFromData
+                        ? SilkIcon.fromPath(
+                            icon: icon!,
+                            color: fontColor,
+                            size: Size.square(iconSize),
+                          )
+                        : SilkIcon.fromData(
+                            icon: iconFromData!,
+                            color: fontColor,
+                            size: Size.square(iconSize),
+                          ),
                   ),
                 if (text != null)
                   Text(

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:test_technique_flutter/pages/cart_page.dart';
+import 'package:test_technique_flutter/pages/detail_page.dart';
 import 'package:test_technique_flutter/pages/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,6 +18,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (_) => const HomePage(),
+        '/cart': (_) => CartPage(),
+        '/detailPage': (_) => DetailPage(),
       },
     );
   }
